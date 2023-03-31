@@ -1,1 +1,1 @@
-{"host":"127.0.0.1","location":"Hospital de João Pessoa","manager_host":"127.0.0.1","manager_port":"4002","port":"4242","repository_ae_title":"AE Title","self_ae_title":"CSTMM"}
+{"host":"localhost","location":"Hospital de João Pessoa","manager_host":"localhost","manager_port":"4002","port":"4242","repository_ae_title":"AE Title","self_ae_title":"CSTMM"}
