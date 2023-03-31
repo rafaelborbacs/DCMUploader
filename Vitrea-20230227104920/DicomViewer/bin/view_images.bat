@@ -1,0 +1,1 @@
+start "" viverify.exe -dir "..\..\."
