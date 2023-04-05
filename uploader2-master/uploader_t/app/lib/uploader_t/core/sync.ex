@@ -9,13 +9,17 @@ defmodule UploaderT.Core.Sync do
       {output, code} =
       if limit == nil do
         System.shell(
-        ~s(rsync -r -e "ssh -o LogLevel=ERROR -p #{port} -i /app/priv/keys/id_rsa" #{source_path} #{user}@#{ip}:#{destination_path})
+        ~s(rsync -r -e "ssh -o LogLevel=DEBUG -p #{port} -i /app/priv/keys/id_rsa" #{source_path} #{user}@#{ip}:#{destination_path})
         )
       else
         System.shell(
-        ~s(rsync --bwlimit=#{limit} -r -e "ssh -o LogLevel=ERROR -p #{port} -i /app/priv/keys/id_rsa" #{source_path} #{user}@#{ip}:#{destination_path})
+        ~s(rsync --bwlimit=#{limit} -r -e "ssh -o LogLevel=DEBUG -p #{port} -i /app/priv/keys/id_rsa" #{source_path} #{user}@#{ip}:#{destination_path})
         )
       end
+
+      System.shell(
+        ~s(echo "primeira funcao synchronize")
+      )
 
       if code != @sucess_code do
         if attempt < @last_attempt do
@@ -38,6 +42,10 @@ defmodule UploaderT.Core.Sync do
           0
           IO.inspect("Error")
       end
+
+      System.shell(
+        ~s(echo "segunda funcao synchronize")
+      )
 
       if number_of_files > 0 do
         {output, code} =
